@@ -34,4 +34,4 @@ plt = plot3d(
 @gif for i=1:1500
     step!(attractor)
     push!(plt, attractor.x, attractor.y, attractor.z)
-end every 5
+end every 10
