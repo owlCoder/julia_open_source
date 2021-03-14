@@ -8,27 +8,7 @@ function matrica!(A)
     (vrste, kolone) = size(A)
     B = zeros(vrste, kolone)
 
-    polovina = floor(Int64, kolone / 2)
-    ostatak =  floor(Int64, kolone % 2)
-    
-    for i in 1:vrste # desna  polovina -> leva polovina
-        for j in 1:polovina
-            B[i, j] = A[i, polovina + j]
-        end
-    end
-        
-    for i in 1:vrste  # leva polovina -> desna polovina
-        for j in (polovina - 1):-1:1
-            B[i, j] = A[i, polovina - j]
-        end
-    end
-
-    if ostatak != 0 # srednju kolonu upiši u srednju kolonu nove matrice
-        for i in 1:vrste  # vrste se menjaju, kolona je fiksna
-            j = polovina + 1
-            B[i, j] = A[i, j]
-        end
-    end
+    B = reverse(A, dims = 2)
 
     return B
 end
