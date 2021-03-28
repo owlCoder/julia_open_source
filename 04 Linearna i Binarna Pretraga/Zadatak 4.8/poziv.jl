@@ -3,8 +3,8 @@ include("program.jl")
 
 print("Unesite broj indeksa\n>> ")
 in = readline()
-ključ = parse(Int, in)
 
+ključ = parse(Int, in)
 indeks = binarnaPretraga(studenti, ključ)
 
 if indeks == -1
