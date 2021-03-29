@@ -7,8 +7,8 @@
 # Rešiti bez rešavanja petlji.
 
 function zadatak2(A, el1)
-    a, b = findmax(prod(A, dims = 2))
-    s = b[1][1]
+    a, b = findmax(prod(A, dims = 1))
+    s = b[2][1]
 
     r = sum(Diagonal(reverse(A, dims = 2)))
     m, n = size(A)
