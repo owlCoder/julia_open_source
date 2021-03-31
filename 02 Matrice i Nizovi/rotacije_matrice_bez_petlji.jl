@@ -4,7 +4,6 @@
 # matricu A. Ukoliko je broj kolona matrice A neparan, srednju kolonu kopirati u
 # matricu B. Zadatak uraditi na 2 načina: pomoću petlji i bez korišćenja petlji.
 
-using Test
 using Random
 
 function matrica(A)
@@ -15,13 +14,13 @@ function matrica(A)
     ostatak =  floor(Int64, kolone % 2)
 
     if ostatak != 0
-         B[:, kolone:-1:(polovina + 2)] = A[:, 1:polovina]  # leva polovina -> desna polovina
-         B[:, 1:polovina] = A[:, (polovina + 2):kolone]     # desna polovina -> leva polovina
-         B[:, (polovina + 1)] = A[:, (polovina + 1)]        # vrste se menjaju, kolona je fiksna
+         B[:, 1:polovina] = A[:, kolone:-1:(polovina + 2)]
+         B[:, kolone:-1:(polovina + 2)] = A[:, 1:polovina]
+         B[:, (polovina + 1)] = A[:, (polovina + 1)]  # vrste se menjaju, kolona je fiksna
 
     else
-         B[:, kolone:-1:(polovina + 1)] = A[:, 1:polovina]  # leva polovina -> desna polovina
-         B[:, 1:polovina] = A[:, kolone:-1:(polovina + 1)]  # desna polovina -> leva polovina
+         B[:, kolone:-1:(polovina + 1)] = A[:, 1:polovina] 
+         B[:, 1:polovina] = A[:, kolone:-1:(polovina + 1)]
     end
    
 
@@ -30,14 +29,16 @@ end
 
 function main()
    A1 = [1 2 3; 4 5 6; 7 8 9]
-   A2 = [1 2 3; 5 6 5; 3 6 4; 6 9 8]
+   A2 = [1 2 3 6 3; 4 5 6 6 3; 4 4 5 6 3; 4 5 6 2 6; 5 14 7 8 5]
    A3 = [1 2; 4 5; 6 7]
-   A4 = [1 2 3 6; 5 6 5 2; 3 6 4 6; 6 9 8 7]
+   A4 = Random.rand(collect(0:15), 5, 5)
+   A5 = Random.rand(collect(0:365693), (5, 2))
 
    @test matrica(A1) == reverse(A1, dims = 2)
-   @test matrica(A2) == reverse(A2, dims = 2)
+   @test matrica(A2) == reverse(A2, dims = 2) 
    @test matrica(A3) == reverse(A3, dims = 2)
-   @test matrica(A4) == reverse(A4, dims = 2)
+   @test matrica(A4) == reverse(A4, dims = 2) 
+   @test matrica(A5) == reverse(A5, dims = 2) 
 end
 
 main()
