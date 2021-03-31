@@ -15,13 +15,13 @@ function matrica(A)
     ostatak =  floor(Int64, kolone % 2)
 
     if ostatak != 0
-         B[:, kolone:-1:(polovina + 2)] = A[:, 1:polovina]
-         B[:, 1:polovina] = A[:, (polovina + 2):kolone]
-         B[:, (polovina + 1)] = A[:, (polovina + 1)]  # vrste se menjaju, kolona je fiksna
+         B[:, kolone:-1:(polovina + 2)] = A[:, 1:polovina]  # leva polovina -> desna polovina
+         B[:, 1:polovina] = A[:, (polovina + 2):kolone]     # desna polovina -> leva polovina
+         B[:, (polovina + 1)] = A[:, (polovina + 1)]        # vrste se menjaju, kolona je fiksna
 
     else
-         B[:, kolone:-1:(polovina + 1)] = A[:, 1:polovina] 
-         B[:, 1:polovina] = A[:, kolone:-1:(polovina + 1)]
+         B[:, kolone:-1:(polovina + 1)] = A[:, 1:polovina]  # leva polovina -> desna polovina
+         B[:, 1:polovina] = A[:, kolone:-1:(polovina + 1)]  # desna polovina -> leva polovina
     end
    
 
