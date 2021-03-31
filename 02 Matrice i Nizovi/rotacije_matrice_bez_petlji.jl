@@ -7,7 +7,7 @@
 using Test
 using Random
 
-function matrica!(A)
+function matrica(A)
     (vrste, kolone) = size(A)
     B = zeros(vrste, kolone)
 
@@ -15,47 +15,29 @@ function matrica!(A)
     ostatak =  floor(Int64, kolone % 2)
 
     if ostatak != 0
-        for i in 1:vrste  # leva polovina -> desna polovina
-        for j in polovina:-1:1
-                B[i, polovina + j + 1] = A[i, j]
-            end
-        end
+         B[:, kolone:-1:(polovina + 2)] = A[:, 1:polovina]
+         B[:, 1:polovina] = A[:, (polovina + 2):kolone]
+         B[:, (polovina + 1)] = A[:, (polovina + 1)]  # vrste se menjaju, kolona je fiksna
 
-        for i in 1:vrste # desna  polovina -> leva polovina
-            for j in 1:polovina
-                B[i, j] = A[i, polovina + j + 1]
-            end
-        end
     else
-        for i in 1:vrste  # leva polovina -> desna polovina
-            for j in polovina:-1:1
-                 B[i, polovina + j] = A[i, j]
-             end
-         end
-
-         for i in 1:vrste # desna  polovina -> leva polovina
-            for j in 1:polovina
-                B[i, j] = A[i, polovina + j]
-            end
-        end
+         B[:, kolone:-1:(polovina + 1)] = A[:, 1:polovina] 
+         B[:, 1:polovina] = A[:, kolone:-1:(polovina + 1)]
     end
-        
-    if ostatak != 0 # srednju kolonu upiši u srednju kolonu nove matrice
-        for i in 1:vrste  # vrste se menjaju, kolona je fiksna
-            j = polovina + 1
-            B[i, j] = A[i, j]
-        end
-    end
+   
 
     return B
 end
 
 function main()
-    A1 = [1 2 3; 4 5 6; 7 8 9]
-    A3 = [1 2; 4 5; 6 7]
+   A1 = [1 2 3; 4 5 6; 7 8 9]
+   A2 = [1 2 3; 5 6 5; 3 6 4; 6 9 8]
+   A3 = [1 2; 4 5; 6 7]
+   A4 = [1 2 3 6; 5 6 5 2; 3 6 4 6; 6 9 8 7]
 
-    @test matrica!(A1) == reverse(A1, dims = 2)
-    @test matrica!(A3) == reverse(A3, dims = 2)
+   @test matrica(A1) == reverse(A1, dims = 2)
+   @test matrica(A2) == reverse(A2, dims = 2)
+   @test matrica(A3) == reverse(A3, dims = 2)
+   @test matrica(A4) == reverse(A4, dims = 2)
 end
 
 main()
