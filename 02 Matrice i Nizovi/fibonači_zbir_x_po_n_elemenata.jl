@@ -1,14 +1,8 @@
-# Zadatak 2.8 Napisati funkciju koja kao ulazni parametar ima vektor A, a kao izlazni
-# vektor koji sadrži sumu svih elemenata vektora A do odgovarajućeg elementa (prvi
-# element, suma prva 2 elementa, suma prva 3 elementa itd...). . Zadatak uraditi
-# na 2 načina: pomoću petlji i bez korišćenja petlji.
-
-
 using Test
 
 function fibonaci(A)
     suma = []
-    n = size(A, 1)
+    n = length(A)
 
     push!(suma, A[1])
 
