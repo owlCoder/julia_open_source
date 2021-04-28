@@ -9,8 +9,12 @@ include("program.jl")
 include("insertionSort.jl")
 
 println("Pre sortiranja")
-display(teniseri)
+ispisTenisera(teniseri)
 
 println("\nPosle sortiranja")
 insertionSort!(teniseri)
-display(teniseri)
+ispisTenisera(teniseri)
+
+println("\n\n------------------------------- RASPORED TENISERA ZA PRVO KOLO ------------------------------------ ")
+rasporediPrvoKolo(teniseri)
+println("--------------------------------------------------------------------------------------------------- ")
