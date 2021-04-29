@@ -3,13 +3,18 @@
 
 include("quickSort.jl")
 
-A = [5 7 2 4 6 1 3 8]
-
-println("Pre sortiranja:")
-display(A)
-
+A = [2 19 5 19 7 1 14 9 1 1 22 1 8]
 quickSort!(A)
+println("Sortirani niz izgleda ovako: $A")
 
-println("\nPosle sortiranja:")
-display(A)
+razliciti = []
+
+for i in 1:length(A)
+	if !(A[i] in razliciti)
+		push!(razliciti, A[i])
+	end
+end
+
+razBr = length(razliciti);
+println("Razlicitih brojeva ima: $razBr")
 
