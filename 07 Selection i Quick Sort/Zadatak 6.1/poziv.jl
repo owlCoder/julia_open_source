@@ -4,11 +4,18 @@
 
 include("selectionSort.jl")
 
-A = [5 7 2 4 6 1 3]
-
-println("Pre sortiranja:")
-display(A)
+A = [2 5 19 7 14 9 1 22 8]
 
 selectionSort!(A)
-println("\nPosle sortiranja:")
-display(A)
+println("Sortirani niz izgleda ovako: $A")
+
+maxRazlika = A[1] - A[2]
+n = length(A)
+
+  for i=2:n - 1
+      if A[i]-A[i + 1] > maxRazlika
+        global maxRazlika = A[i] - A[i + 1]
+      end 
+  end
+
+println("\nNajveca razlika je: $maxRazlika")
