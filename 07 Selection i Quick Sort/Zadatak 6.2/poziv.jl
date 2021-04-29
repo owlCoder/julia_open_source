@@ -5,12 +5,9 @@
 include("student.jl")
 include("selectionSort.jl")
 
-A = [5 7 2 4 6 1 3 8]
-
-println("Pre sortiranja:")
-display(A)
-
-selectionSort!(A)
-
-println("\nPosle sortiranja:")
-display(A)
+println("Nesortirani spisak studenata:\n")
+ispisStudenata(studenti)
+println()
+selectionSortStudenti!(studenti)
+println("Sortirani spisak studenata:\n")
+ispisStudenata(studenti)
