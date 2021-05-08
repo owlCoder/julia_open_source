@@ -3,14 +3,13 @@
 
 # KOREKCIJA: KORISTI SE QUICK SORT ALGORITAM JER Selection Sort ne radi!
 include("recnik.jl")
-# include("selectionSort.jl")
-include("quickSort.jl")
+include("selectionSort.jl")
 include("pretragaPojava.jl")
 
 println("Rečnik pre sortiranja")
 ispisRečnika(recnici)
 
-quickSort!(recnici)
+selectionSort!(recnici)
 println("\nRečnik posle sortiranja")
 ispisRečnika(recnici)
 
