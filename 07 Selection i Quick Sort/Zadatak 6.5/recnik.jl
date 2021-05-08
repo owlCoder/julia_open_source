@@ -35,5 +35,5 @@ function ispisRečnika(recnici)
 end
 
 function uporedi(r1, r2)
-    return r1.rec >= r2.rec
+    return r1.rec <= r2.rec
 end
