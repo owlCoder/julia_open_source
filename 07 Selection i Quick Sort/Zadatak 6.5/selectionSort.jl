@@ -6,7 +6,7 @@ function selectionSort!(recnici)
         minIndeks = i
 
         for j in (i + 1):n
-            if uporedi(recnici[j], recnici[i])
+            if uporedi(recnici[j], recnici[minIndeks])
                 minIndeks = j
             end
         end
