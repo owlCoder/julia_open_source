@@ -1,3 +1,11 @@
+# Zadatak 7.1
+# ● Napisati funkciju koja za dva ID-ija korisnika pronalazi najkraću putanju od
+# jednog do drugog korisnika preko veza prijateljstava. Ulazni parametar su graf,
+# startni i krajnji ID od dva korisnika, a izlazni parametar je putanja koja se sastoji
+# od ID-eva korisnika između pomenuta dva.
+# ● Kreirati modifikaciju BFS algoritma, tako da je funkcija findPath ugrađena u
+# pretragu. 
+     
 include("GRAPH!/graph.jl")
 include("BFS!/BFS.jl")
 
