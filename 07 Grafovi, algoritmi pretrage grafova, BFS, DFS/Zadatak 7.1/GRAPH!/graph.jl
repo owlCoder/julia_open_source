@@ -49,7 +49,7 @@ function pronađiPutanju(Graf, početak, kraj)
     tmp = kraj
 
     while tmp != početak
-        putanja = [tmp, putanja]
+        putanja = [tmp; putanja]
         tmp = Graf.V[tmp].prethodni
     end
     return [početak; putanja]
