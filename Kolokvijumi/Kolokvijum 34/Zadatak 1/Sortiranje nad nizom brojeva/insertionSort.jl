@@ -1,0 +1,3 @@
+function insertionSort!(niz)
+
+end
