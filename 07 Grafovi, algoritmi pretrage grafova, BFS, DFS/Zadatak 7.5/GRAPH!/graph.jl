@@ -1,56 +1,44 @@
-mutable struct Čvor
-        boja::Char
-        udaljenost::Int
-        prethodni::Int
+mutable struct Cvor
+    color::Char
+    d::Int
+    pred::Int
+    ime::String
+    prezime::String
+    pol::Char
+end
+mutable struct graph
+   AdjMatrix::Array{Int, 2}
+   V::Array{Cvor, 1}
 end
 
-mutable struct graf
-    AdjMatrix::Array{Int, 2}
-    V::Array{Čvor, 1}
-end
-
-function prazanGraf(n)
-    AdjMatrix = zeros(n, n)
-    V = Array{Čvor}(undef, n)
-
-    for i in 1:n
-        V[i] = Čvor('W', 0, 0)
+function printGraph(G)
+  n = size(G.AdjMatrix, 1)
+  for i in 1:n
+    for j in 1:n
+      print(" $(G.AdjMatrix[i,j])")
     end
-    return graf(AdjMatrix, V)
+  println()
+  end
+  for i in 1:n
+     println("$(G.V[i].color) $(G.V[i].d) $(G.V[i].pred) $(G.V[i].ime) $(G.V[i].prezime) $(G.V[i].pol) ")
+  end
 end
 
-function neprazanGraf(AdjMatrix)
-    n = size(AdjMatrix, 1)
-    V = Array{Čvor}(undef, n)
-
-    for i in 1:n
-        V[i] = Čvor('W', 0, 0)
-    end
-    return graf(copy(AdjMatrix), V)
+function emptyGraph(n)
+   AdjMatrix = zeros(n, n)
+   V = Array{Cvor}(undef, n)
+   for i in 1:n
+     V[i] = Cvor('W', 0, 0, "", "", ' ')
+   end
+   return graph(AdjMatrix, V)
 end
 
-function štampanjeGrafa(Graf)
-    n = size(Graf.AdjMatrix, 1)
-
-    for i in 1:n
-        for j in 1:n
-            print(" $(Graf.AdjMatrix[i, j])")
-        end
-    println()
-    end
-
-    for i in 1:n
-        println("$(Graf.V[i].boja) $(Graf.V[i].udaljenost) $(Graf.V[i].prethodni) ")
-    end
+function nonEmptyGraph(AdjMat)
+   n = size(AdjMat, 1)
+   V = Array{Cvor}(undef, n)
+   for i in 1:n
+     V[i] = Cvor('W', 0, 0, "", "", ' ')
+   end
+   return graph(copy(AdjMat), V)
 end
 
-function pronađiPutanju(Graf, početak, kraj)
-    putanja = []
-    tmp = kraj
-
-    while tmp != početak
-        putanja = [tmp, putanja]
-        tmp = Graf.V[tmp].prethodni
-    end
-    return [početak; putanja]
-end
