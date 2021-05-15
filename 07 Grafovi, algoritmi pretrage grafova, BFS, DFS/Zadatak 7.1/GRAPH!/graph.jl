@@ -45,7 +45,7 @@ function štampanjeGrafa(Graf)
 end
 
 function pronađiPutanju(Graf, početak, kraj)
-    putanja = []
+    putanja = Int[]
     tmp = kraj
 
     while tmp != početak
