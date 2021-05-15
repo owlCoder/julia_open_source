@@ -45,11 +45,11 @@ function štampanjeGrafa(Graf)
 end
 
 function pronađiPutanju(Graf, početak, kraj)
-    putanja = []
+    putanja = Int[]
     tmp = kraj
 
     while tmp != početak
-        putanja = [tmp, putanja]
+        putanja = [tmp; putanja]
         tmp = Graf.V[tmp].prethodni
     end
     return [početak; putanja]
