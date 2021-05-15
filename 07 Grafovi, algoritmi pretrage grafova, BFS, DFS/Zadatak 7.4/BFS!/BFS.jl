@@ -1,4 +1,4 @@
-function BFS!(Graf, početak, kraj)
+function BFS!(Graf, početak, kraj, maxKm)
     v = 1:size(Graf.AdjMatrix, 1)
     for u in v
         if u != početak
@@ -29,10 +29,10 @@ function BFS!(Graf, početak, kraj)
             end
             return [početak; putanja]
         else 
-            for v in findall(Graf.AdjMatrix[u, :] .== 1)
-                if Graf.V[v].boja == 'W'
+            for v in findall(Graf.AdjMatrix[u, :] .> 0)
+                if Graf.V[v].boja == 'W' && (Graf.V[u].udaljenost + Graf.AdjMatrix[u, v]) < maxKm
                 Graf.V[v].boja = 'G'
-                Graf.V[v].udaljenost = Graf.V[u].udaljenost + 1
+                Graf.V[v].udaljenost = Graf.V[u].udaljenost + Graf.AdjMatrix[u, v]
                 Graf.V[v].prethodni = u
                 push!(Q, v)
                 end

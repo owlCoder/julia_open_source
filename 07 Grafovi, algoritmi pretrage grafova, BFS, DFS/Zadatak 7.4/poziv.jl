@@ -9,23 +9,19 @@
 include("GRAPH!/graph.jl")
 include("BFS!/BFS.jl")
 
-M = [0 1 1 0 0 0 1; 
-     1 0 0 0 0 0 0; 
-     1 0 0 1 1 0 0;
-     0 0 1 0 0 0 1; 
-     0 0 1 0 0 1 0; 
-     0 0 0 0 1 0 1;
-     1 0 0 1 0 1 0]
+M = [0 3 0 0 0 0 1; 
+     3 0 0 0 0 0 0; 
+     1 0 0 5 8 0 0;
+     0 0 5 0 0 0 3; 
+     0 0 8 0 0 4 0; 
+     0 0 0 0 4 0 1;
+     1 0 0 3 0 1 0]
 
 G = neprazanGraf(M)
 
-maxKm = 5
-putevi = BFS!(G, 1, 3)
+maxKm = 10
+putevi = BFS!(G, 1, 3, maxKm)
 
-for i in length(putevi)
-    if putevi[i] < maxKm
-        println("Put $i: $(putevi[i])")
-    end
-end
+println("\nPut: $putevi")
 
 štampanjeGrafa(G)
