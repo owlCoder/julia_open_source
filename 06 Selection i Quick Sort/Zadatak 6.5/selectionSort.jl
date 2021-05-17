@@ -1,4 +1,3 @@
-# Selection sort ne sortira lepo niz, dok quickSort radi korektno
 function selectionSort!(recnici)
     n = length(recnici)
 
