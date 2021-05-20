@@ -12,18 +12,25 @@ function BFS!(Graf)
         Graf.V[u].pred = -1
     end
 
-    rbOstrva = 0
+    # svi čvorovi koji nemaju prethodnika svrstaj u posebnu grupu
+    for u = v
+        if Graf.V[u].color == 'W' && Graf.V[u].type != 'Z' && Graf.V[u].pred <= -1
+            Graf.V[u].d = -1
+        end
+    end
+
+    rbOstrva = 0  
 
     for u = v
-        if Graf.V[u].color == 'W' && Graf.V[u].type == 'P' && Graf.V[u].pred <= 1   
+        if Graf.V[u].color == 'W' && Graf.V[u].type == 'P' 
             rbOstrva += 1
-            BFS_Visit!(G, u, rbOstrva)
+            BFS_Visit!(Graf, u, rbOstrva)
         end
     end
 end
 
 function BFS_Visit!(Graf, u, rbOstrva)
-    G.V[u].d = rbOstrva    
+    Graf.V[u].d = rbOstrva    
     Graf.V[u].color = 'G'
 
     for v in findall(Graf.AdjMatrix[u, :] .== 1)
@@ -31,6 +38,6 @@ function BFS_Visit!(Graf, u, rbOstrva)
             BFS_Visit!(Graf, v, rbOstrva)
         end
     end
-    G.V[u].color = 'B'
+    Graf.V[u].color = 'B'
 end
 

@@ -23,7 +23,7 @@ G = emptyLabyrinth(redovi, kolone);
 
 # kreiramo lavirint
 defineNodesType!(G, 1:(redovi * kolone), 'P');
-defineNodesType!(G, [5 9 10 11 13 15 21 23 24 26 28 29 31 34 44 45 46 47 50 55 58 60 61 63], 'Z')
+defineNodesType!(G, [5 9 10 11 12 13 15 21 22 23 24 26 28 29 31 32 33 34 37 43 44 45 46 47 50 51 55 58 60 61 63], 'Z')
 
 BFS!(G)
 printLabyrinthType(G)
