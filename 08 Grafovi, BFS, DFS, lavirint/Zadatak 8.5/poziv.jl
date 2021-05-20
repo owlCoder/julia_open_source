@@ -18,7 +18,7 @@ defineNodesType!(G, [9 26 44 45 50 60 61 63], 'K')          # KOVČEG SA BLAGOM
 printLabyrinthType(G)
 
 # poziv za trazenje puta od čvora 25 do čvora 26
-path = DFS!(G, 25, 26);
+path = DFS!(G, 12, 26);
 
 println("\n\nIspis putanje i izgled lavirinta posle obilaska")
 println("\nPath = $path\n")
