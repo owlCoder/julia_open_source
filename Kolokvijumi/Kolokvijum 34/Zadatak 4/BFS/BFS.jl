@@ -25,7 +25,7 @@ function BFS!(Graf, start)
 		deleteat!(Q, 1)
 		
 		for v in findall(Graf.AdjMatrix[u, :] .== 1)
-			if Graf.V[v].color == 'W'
+			if Graf.V[v].color == 'W' && Graf.V[v].type == 'P'
 				Graf.V[v].color = 'G'
 				Graf.V[v].d = Graf.V[u].d + 1 
 				Graf.V[v].pred = u
