@@ -18,7 +18,7 @@ UVOD U ALGORITME
 │     08 Grafovi, BFS, DFS, lavirint
 │
 └─── Predmetni Projekat
-      ...
+      Dijkstra
 
 ```
 
