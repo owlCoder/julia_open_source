@@ -4,7 +4,7 @@
 
 # Dijkstra algoritam -> baziran na pamćenju vrednosti d[v] trenutnog
 # najkraćeg puta od početnog čvora do svih ostalih čvorova.
-function Dijkstra!(Graf::Graf, sekundarniKljuč::Int32)    
+function Dijkstra!(Graf::Graf, sekundarniKljuč::Int32, krajniKljuč::Int32)    
     function pronadjiMinimum!(Q)            # Funkcija koja pronalazi čvor iz skupa Q koji ima najmanju
         D = map(id -> Graf.V[id].udaljenost, Q)
         indeks = argmin(D)                  
@@ -43,6 +43,19 @@ function Dijkstra!(Graf::Graf, sekundarniKljuč::Int32)
                                             # d[v] ne određuje najkraći put iz početnog čvora u v.
         end
         u.boja = B
+
+        if u.ključ == krajniKljuč
+            if u.udaljenost == Inf
+                println("\t       NEMA PUTANJE!\n")
+                break
+            end
+            print(" PUTANJA: ")
+            for i in 1:length(S)
+                print("$(S[i].ključ) ")
+            end
+            println("\n UKUPNA UDALJENOST: $(S[length(S)].udaljenost)\n")
+            break
+        end
     end
 
     # Funkcija koja za svaku putanju od referentnog do i-tog čvora 

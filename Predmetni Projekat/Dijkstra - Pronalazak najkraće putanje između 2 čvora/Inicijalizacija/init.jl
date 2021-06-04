@@ -27,10 +27,10 @@ function inicijalizuj_početne_vrednosti()
     return g
 end
 
-function unos_broja()
+function unos_broja(kojiČvor)
     unos = 0
     while unos < 1 || unos > 12
-        print("UNESITE POČETNI (REFERENTI) ČVOR X: ")
+        print(" UNESITE $kojiČvor (REFERENTI) ČVOR X: ")
         str = readline(stdin)
         ucitano = 0
     
@@ -43,7 +43,7 @@ function unos_broja()
         unos = ucitano
     end
     
-    println()
+   # println()
     return unos
 end
 
