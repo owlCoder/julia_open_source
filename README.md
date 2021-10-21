@@ -3,14 +3,6 @@
 <h3> File structure </h3>
 
 ```
-PRIMENJENI ALGORITMI
-|
-└─── Kolokvijum 1
-|     01 Genetski algoritam (osnovni, mat. jed., problem ranca)
-|
-
-
-
 UVOD U ALGORITME
 │  
 └─── Kolokvijum 1 i Kolokvijum 2
