@@ -1,4 +1,4 @@
-## Projects and codes done in "Julia"
+## Julia Open Source Projects/Codes
 
 <h3> File structure </h3>
 
